@@ -1,0 +1,16 @@
+services:
+  order-db:
+    image: postgres:16-alpine
+    container_name: saga-flow-order-db
+    hostname: order-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: order_db
+      POSTGRES_USER: order
+      POSTGRES_PASSWORD: admin4321
+    volumes:
+      - order-db-data:/var/lib/postgresql/data
+
+volumes:
+  order-db-data:
